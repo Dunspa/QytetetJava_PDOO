@@ -7,13 +7,15 @@ package modeloqytetet;
 
 /**
  *
- * @author jlgallego99
+ * @author Jose Luis Gallego Peña
  */
 public class Sorpresa {
     
-    private String texto;
-    private TipoSorpresa tipo;
-    private int valor;
+    private String texto;       // Describe la sorpresa
+    private TipoSorpresa tipo;  // Indica el tipo de sorpresa
+    private int valor;          // Afecta de forma diferente según la carta
+    
+    /* Constructor */ 
     
     public Sorpresa(String texto, int valor, TipoSorpresa tipo){
     
@@ -23,24 +25,27 @@ public class Sorpresa {
     
     }
     
-    public String getTexto(){
+    /* Consultores */
+    
+    String getTexto(){
     
         return texto;
         
     }
     
-    public TipoSorpresa getTipo(){
+    TipoSorpresa getTipo(){
     
         return tipo;
         
     }
     
-    public int getValor(){
+    int getValor(){
     
         return valor;
     
     }
     
+    // Devuelve un string con el estado del objeto correspondiente
     @Override
     public String toString() {
         
