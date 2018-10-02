@@ -1,24 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Programación y Diseño Orientado a Objetos - Práctica Qytetet
+ * Clase Qytetet
+ * Autor: Jose Luis Gallego Peña
  */
 package modeloqytetet;
 import java.util.ArrayList;
 
-/**
- *
- * @author Jose Luis Gallego Peña
- */
 public class Qytetet {
     
     private ArrayList<Sorpresa> mazo = new ArrayList<>(); // Almacena las cartas
+    Tablero tablero;
+    
+    /* Consultores */
     
     ArrayList<Sorpresa> getMazo(){
-    
-        return mazo;
-        
+        return mazo;    
     }
+
+    public Tablero getTablero() {
+        return tablero;
+    }
+    
     
     // Se crean y se incluyen en el mazo todas las cartas sorpresa
     void inicializarCartasSorpresa(){
@@ -38,12 +40,13 @@ public class Qytetet {
         /* IRACASILLA */
         
         // Carta sorpresa que manda al jugador a la cárcel
-        mazo.add(new Sorpresa ("Estás más pillado que pilladín, mejor suerte "
-        + "la próxima vez. ¡A la carcel!", 9, TipoSorpresa.IRACASILLA));
+        mazo.add(new Sorpresa ("Has sido pillado, mejor suerte "
+        + "la próxima vez. ¡A la carcel!", tablero.getCarcel().getNumeroCasilla(), 
+        TipoSorpresa.IRACASILLA));
         
         // Carta sorpresa que manda al jugador a una casilla
         mazo.add(new Sorpresa ("Te tropiezas y sales volando a una casilla "
-        + "diferente.", 16, TipoSorpresa.IRACASILLA));
+        + "diferente.", 17, TipoSorpresa.IRACASILLA));
         
         // Carta sorpresa que manda al jugador a una casilla
         mazo.add(new Sorpresa ("Te tropiezas y sales volando a una casilla "
@@ -52,12 +55,12 @@ public class Qytetet {
         /* PORCASAHOTEL */
         
         // Carta sorpresa que hace que el jugador cobre por su propiedad
-        mazo.add(new Sorpresa ("Tu propiedad ha obtenido beneficios, así que te "
+        mazo.add(new Sorpresa ("Tu propiedad ha obtenido beneficios así que te "
         + "llevas un buen pico.", 10000, TipoSorpresa.PORCASAHOTEL));
         
         // Carta sorpresa que hace que el jugador pague por su propiedad
-        mazo.add(new Sorpresa ("Te toca pagar por tener tierras, así que te "
-        + "toca apoquinar.", -10000, TipoSorpresa.PORCASAHOTEL));
+        mazo.add(new Sorpresa ("Te toca pagar por tener tierras, no seas tan"
+        + "avaricioso la próxima vez.", -10000, TipoSorpresa.PORCASAHOTEL));
         
         /* PORJUGADOR */
                 
@@ -67,14 +70,21 @@ public class Qytetet {
         
         // Carta sorpresa que hace que tengas que pagar a todos los jugadores
         mazo.add(new Sorpresa ("Hoy no es tu día de suerte, debes pagar a todos"
-        + " los jugadores por ser tan avaricioso.", -3000, TipoSorpresa.PORJUGADOR));
+        + " los jugadores porque así lo dice esta carta", -3000, 
+        TipoSorpresa.PORJUGADOR));
         
         /* SALIRCARCEL */
        
         // Carta sorpresa que saca al jugador de la cárcel
-        mazo.add(new Sorpresa ("Poderoso caballero es Don Dinero, alguien ha "
-        + "pagado tu fianza. Sales de la cárcel.", 0, TipoSorpresa.SALIRCARCEL));        
+        mazo.add(new Sorpresa ("Parece ser que le has caído bien a alguien y ha"
+        + " pagado tu fianza. Sales de la cárcel.", 0, TipoSorpresa.SALIRCARCEL));        
         
     }
     
+    // Inicializa el tablero del juego
+    void inicializarTablero(){
+    
+        tablero = new Tablero();
+    
+    }
 }

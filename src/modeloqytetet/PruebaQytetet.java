@@ -1,15 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Programación y Diseño Orientado a Objetos - Práctica Qytetet
+ * Clase PruebaQytetet (Función Main)
+ * Autor: Jose Luis Gallego Peña
  */
 package modeloqytetet;
 import java.util.ArrayList;
 
-/**
- *
- * @author Jose Luis Gallego Peña
- */
 public class PruebaQytetet {
     
     public static Qytetet juego = new Qytetet();
@@ -58,6 +54,7 @@ public class PruebaQytetet {
     
     public static void main(String[] args) {
         
+        juego.inicializarTablero();
         juego.inicializarCartasSorpresa();
         
         for (Sorpresa s : juego.getMazo())
@@ -65,30 +62,30 @@ public class PruebaQytetet {
         
         /* Invocar cada uno de los métodos definidos anteriormente */
         
-        System.out.println("Método 1: Arraylist con las sorpresas con "
+        System.out.println("\n Método 1: Arraylist con las sorpresas con "
         + "valor positivo \n");
         ArrayList<Sorpresa> s_positivas = SorpresasPositivas();
         for (Sorpresa s : s_positivas)
             System.out.println(s.toString());
         
-        System.out.println("Método 2: Arraylist con las sorpresas de tipo "
+        System.out.println("\n Método 2: Arraylist con las sorpresas de tipo "
         + "IRACASILLA \n");
         ArrayList<Sorpresa> s_iracasilla = SorpresasIracasilla();
         for (Sorpresa s : s_iracasilla)
             System.out.println(s.toString());
         
-        // Lista con todos los valores de TipoSorpresa
-        TipoSorpresa[] tipos = TipoSorpresa.values();
+        System.out.println("\n Método 3: Arraylist con cada tipo de sorpresa \n");
         
-        System.out.println("Método 3: Arraylist con cada tipo de sorpresa \n");
+        for (TipoSorpresa t : TipoSorpresa.values()){
+            for (Sorpresa s : SorpresasTipo(t)){
+                
+                System.out.println(s.toString());
+                
+            }            
+        } 
         
-        for (TipoSorpresa t : tipos){
-            
-            System.out.println();
-            System.out.println(SorpresasTipo(t).toString());
-            
-        }
+        System.out.println("\n TABLERO DE JUEGO: \n");
+        System.out.println(juego.tablero.toString());
         
     }
-    
 }
