@@ -12,58 +12,78 @@ public class Casilla {
     private TipoCasilla tipo;       // Tipo de la casilla
     private TituloPropiedad titulo; // Asocia la casilla a su título
     
+    //------------------------------------------------------------------------
+    
     /* Constructores (Depende de si la casilla es una calle o no) */
+    // Por defecto
+    Casilla(){
+        this.numeroCasilla = 0;
+        this.coste = 0;
+        this.tipo = TipoCasilla.SALIDA;
+        this.titulo = null;  
+    }
     
     // Para calles
-    public Casilla(int numeroCasilla, TituloPropiedad titulo){
-    
+    Casilla(int numeroCasilla, TituloPropiedad titulo){
         this.numeroCasilla = numeroCasilla;
         this.coste = titulo.getPrecioCompra();
         this.tipo = TipoCasilla.CALLE;
         this.setTitulo(titulo);
-        
-        
     }
     
     // Para cualquier otra casilla
-    public Casilla(int numeroCasilla, int coste, TipoCasilla tipo){
-    
+    Casilla(int numeroCasilla, int coste, TipoCasilla tipo){ 
         this.numeroCasilla = numeroCasilla;
         this.coste = coste;
         this.tipo = tipo;
-        this.titulo = null;
-    
+        this.titulo = null;   
     }
     
-    /* Consultores */
+    //------------------------------------------------------------------------
+    
+    /*TituloPropiedad asignarPropietario(Jugador jugador){
+        
+    }*/
 
-    public int getNumeroCasilla() {
+    int getCoste() {
+        return coste;
+    }
+    
+    int getNumeroCasilla() {
         return numeroCasilla;
     }
 
-    public int getCoste() {
-        return coste;
-    }
-
-    public TipoCasilla getTipo() {
+    TipoCasilla getTipo() {
         return tipo;
     }
 
-    public TituloPropiedad getTitulo() {
+    TituloPropiedad getTitulo() {
         return titulo;
     }
     
-    /* Modificadores */
+    /*int pagarAlquiler(){
+        
+    }
+    
+    boolean propietarioEncarcelado(){
+        
+    }*/
 
     private void setTitulo(TituloPropiedad titulo) {
         this.titulo = titulo;
     }
     
-    public String toString(){
+    /*boolean soyEdificable(){
+        
+    }
     
-        return "Casilla{" + "numeroCasilla=" + Integer.toString(numeroCasilla) +
+    boolean tengoPropietario(){
+        
+    }*/
+    
+    public String toString(){
+        return "\nCasilla{" + "numeroCasilla=" + Integer.toString(numeroCasilla) +
                 ", coste=" + Integer.toString(coste) +
                 ", tipo=" + tipo + ", titulo=" + titulo + "}";
-    
     }   
 }

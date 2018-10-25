@@ -5,41 +5,38 @@
  */
 package modeloqytetet;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PruebaQytetet {
     
-    public static Qytetet juego = new Qytetet();
+    public static Qytetet juego = Qytetet.getInstance();
+    private static final Scanner input = new Scanner(System.in);
     
     // Devuelve un arraylist con las sorpresas cuyo valor es mayor que 0
     private static ArrayList<Sorpresa> SorpresasPositivas(){
-    
-        ArrayList<Sorpresa> sorpresas = new ArrayList<>();
+        ArrayList<Sorpresa> sorpresas = new ArrayList();
         
         for (Sorpresa s : juego.getMazo())
             if (s.getValor() > 0)
                 sorpresas.add(s);
         
         return sorpresas;
-    
     }
     
     // Devuelve un arraylist con las sorpresas cuyo tipo es IRACASILLA
-    private static ArrayList<Sorpresa> SorpresasIracasilla(){
-    
-        ArrayList<Sorpresa> sorpresas = new ArrayList<>();
+    private static ArrayList<Sorpresa> SorpresasIracasilla(){    
+        ArrayList<Sorpresa> sorpresas = new ArrayList();
         
         for (Sorpresa s : juego.getMazo())
             if (s.getTipo() == TipoSorpresa.IRACASILLA)
                 sorpresas.add(s);
         
-        return sorpresas;
-    
+        return sorpresas;    
     }
     
     // Devuelve un arraylist con las sorpresas cuyo tipo se especifica
-    private static ArrayList<Sorpresa> SorpresasTipo(TipoSorpresa tipo){
-    
-        ArrayList<Sorpresa> sorpresas = new ArrayList<>();
+    private static ArrayList<Sorpresa> SorpresasTipo(TipoSorpresa tipo){   
+        ArrayList<Sorpresa> sorpresas = new ArrayList();
         
         for (Sorpresa s : juego.getMazo()){
         
@@ -48,17 +45,32 @@ public class PruebaQytetet {
         
         }
         
-        return sorpresas;
+        return sorpresas;   
+    }
     
+    // Pide el nombre de los jugadores que van a jugar Qytetet
+    private static ArrayList<String> getNombreJugadores(){
+        ArrayList<String> jugadores = new ArrayList();
+        
+        System.out.println("¿Cuántos jugadores van a jugar? (4 máximo, 2 mínimo)");
+        int n = input.nextInt();
+        System.out.println("Introduzca los nombres de los " + n + " jugadores:");
+        String s = input.nextLine();
+        for (int i = 0 ; i < n ; i++){
+            //s = input.nextLine();
+            jugadores.add(s);
+        }
+            
+        return jugadores;
     }
     
     public static void main(String[] args) {
+        ArrayList<String> jugadores = getNombreJugadores();
+        juego.inicializarJuego(jugadores);
         
-        juego.inicializarTablero();
-        juego.inicializarCartasSorpresa();
-        
-        for (Sorpresa s : juego.getMazo())
-            System.out.println(s.toString());
+        System.out.println("\nJugadores:");
+        for (String s : jugadores)
+            System.out.println(s); 
         
         /* Invocar cada uno de los métodos definidos anteriormente */
         
@@ -74,18 +86,13 @@ public class PruebaQytetet {
         for (Sorpresa s : s_iracasilla)
             System.out.println(s.toString());
         
-        System.out.println("\n Método 3: Arraylist con cada tipo de sorpresa \n");
-        
+        System.out.println("\n Método 3: Arraylist con cada tipo de sorpresa \n");       
         for (TipoSorpresa t : TipoSorpresa.values()){
-            for (Sorpresa s : SorpresasTipo(t)){
-                
-                System.out.println(s.toString());
-                
+            for (Sorpresa s : SorpresasTipo(t)){ 
+                System.out.println(s.toString());        
             }            
-        } 
+        }     
         
-        System.out.println("\n TABLERO DE JUEGO: \n");
-        System.out.println(juego.tablero.toString());
-        
+        System.out.println(juego.toString());
     }
 }

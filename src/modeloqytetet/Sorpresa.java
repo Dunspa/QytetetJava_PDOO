@@ -11,17 +11,15 @@ public class Sorpresa {
     private int valor;          // Afecta de forma diferente según la carta
     private TipoSorpresa tipo;  // Indica el tipo de sorpresa
     
-    /* Constructor */ 
+    //------------------------------------------------------------------------
     
-    public Sorpresa(String texto, int valor, TipoSorpresa tipo){
-    
+    Sorpresa(String texto, int valor, TipoSorpresa tipo){   
         this.texto = texto;
         this.valor = valor;
-        this.tipo = tipo;
-    
+        this.tipo = tipo;    
     }
     
-    /* Consultores */
+    //------------------------------------------------------------------------
     
     String getTexto(){
         return texto;
@@ -37,11 +35,8 @@ public class Sorpresa {
     
     // Devuelve un string con el estado del objeto correspondiente
     @Override
-    public String toString() {
-        
-        return "Sorpresa{" + "texto=" + texto + ", valor=" +
+    public String toString() {      
+        return "\nSorpresa{" + "texto=" + texto + ", valor=" +
                 Integer.toString(valor) + ", tipo=" + tipo + "}";
-
-    }
-    
+    }   
 }
