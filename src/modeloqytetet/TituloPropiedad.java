@@ -38,37 +38,37 @@ public class TituloPropiedad {
     
     //------------------------------------------------------------------------
     
-    /*int calcularCosteCancelar(){
-        
+    int calcularCosteCancelar(){
+        return ((int)(calcularCosteHipotecar() + 0.10 * calcularCosteHipotecar()));
     }
     
     int calcularCosteHipotecar(){
-        
+        return ((int)(hipotecaBase + numCasas * 0.5 * hipotecaBase + numHoteles * hipotecaBase));
     }
     
     int calcularImporteAlquiler(){
-        
+        return (alquilerBase + ((int)(numCasas * 0.5 + numHoteles * 2)));
     }
     
     int calcularPrecioVenta(){
-        
+        return ((int)(precioCompra + (numCasas + numHoteles) * precioEdificar * factorRevalorizacion));
     }
     
     void cancelarHipoteca(){
-        
+        setHipotecada(false);
     }
     
-    void cobrarAlquiler(int coste){
+    /*void cobrarAlquiler(int coste){
         
-    }
+    }*/
     
     void edificarCasa(){
-        
+        numCasas = numCasas + 1;
     }
     
     void edificarHotel(){
-        
-    }*/
+        numHoteles = numHoteles + 1;
+    }
     
     String getNombre() {
         return nombre;
@@ -110,19 +110,25 @@ public class TituloPropiedad {
         return propietario;
     }
     
-    /*int hipotecar(){
+    int hipotecar(){
+        setHipotecada(true);
+        int costeHipoteca = calcularCosteHipotecar();
         
+        return costeHipoteca;
     }
     
     int pagarAlquiler(){
-        
+       int costeAlquiler = calcularImporteAlquiler(); 
+       propietario.modificarSaldo(costeAlquiler);
+       
+       return costeAlquiler;
     }
     
     boolean propietarioEncarcelado(){
-        
+        return propietario.getEncarcelado();
     }
     
-    void setHipotecada(boolean hipotecada){
+    /*void setHipotecada(boolean hipotecada){
         
     }*/
     
@@ -130,9 +136,9 @@ public class TituloPropiedad {
         this.propietario = propietario;
     }
     
-    /*boolean tengoPropietario(){
-        
-    }*/
+    boolean tengoPropietario(){
+        return (propietario != null);
+    }
     
     public void setHipotecada(boolean hipotecada) {
         this.hipotecada = hipotecada;

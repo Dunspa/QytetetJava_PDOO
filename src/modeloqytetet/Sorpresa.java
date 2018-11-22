@@ -19,6 +19,12 @@ public class Sorpresa {
         this.tipo = tipo;    
     }
     
+    public Sorpresa(Sorpresa s){
+        this.texto = s.getTexto();
+        this.valor = s.getValor();
+        this.tipo = s.getTipo();    
+    }
+    
     //------------------------------------------------------------------------
     
     String getTexto(){

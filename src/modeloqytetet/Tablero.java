@@ -21,6 +21,18 @@ public class Tablero {
     
     //------------------------------------------------------------------------
     
+    boolean esCasillaCarcel(int numeroCasilla){
+        return (numeroCasilla == carcel.getNumeroCasilla());
+    }
+    
+    Casilla getCarcel() {
+        return carcel;
+    }
+    
+    ArrayList<Casilla> getCasillas() {
+        return casillas;
+    }
+    
     // Inicializa todas las casillas del tablero con sus atributos
     private void inicializar(){
         casillas = new ArrayList();   // Se asigna un nuevo arraylist a casillas
@@ -80,12 +92,17 @@ public class Tablero {
         carcel = casillas.get(15);    // Añadir cárcel a su atributo     
     }
 
-    public ArrayList<Casilla> getCasillas() {
-        return casillas;
+    Casilla obtenerCasillaFinal(Casilla casilla, int desplazamiento){
+        int posicion = casilla.getNumeroCasilla() + desplazamiento;
+        if (posicion > 19){
+            posicion -= 20;
+        }
+        
+        return casillas.get(posicion);
     }
-
-    public Casilla getCarcel() {
-        return carcel;
+    
+    Casilla obtenerCasillaNumero(int numeroCasilla){
+        return casillas.get(numeroCasilla);
     }
     
     @Override

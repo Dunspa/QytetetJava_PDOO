@@ -55,10 +55,9 @@ public class PruebaQytetet {
         System.out.println("¿Cuántos jugadores van a jugar? (4 máximo, 2 mínimo)");
         int n = input.nextInt();
         System.out.println("Introduzca los nombres de los " + n + " jugadores:");
-        String s = input.nextLine();
+        input.nextLine();
         for (int i = 0 ; i < n ; i++){
-            //s = input.nextLine();
-            jugadores.add(s);
+            jugadores.add(input.nextLine());
         }
             
         return jugadores;
@@ -72,7 +71,7 @@ public class PruebaQytetet {
         for (String s : jugadores)
             System.out.println(s); 
         
-        /* Invocar cada uno de los métodos definidos anteriormente */
+        /* Invocar cada uno de los métodos definidos anteriormente 
         
         System.out.println("\n Método 1: Arraylist con las sorpresas con "
         + "valor positivo \n");
@@ -92,7 +91,30 @@ public class PruebaQytetet {
                 System.out.println(s.toString());        
             }            
         }     
+        */
+
+        // System.out.println(juego.toString());
         
-        System.out.println(juego.toString());
+        /* Pruebas Práctica 3:
+        System.out.println("\nJugador juega: " + juego.getJugadorActual().getNombre());
+        juego.mover(1);
+        System.out.println("\nJugador se mueve a casilla" + juego.obtenerCasillaJugadorActual());
+        juego.comprarTituloPropiedad();
+        System.out.println("\nJugador compra " + juego.obtenerCasillaJugadorActual().getTitulo().getNombre());
+        //System.out.println(juego.getJugadorActual().esDeMiPropiedad(juego.obtenerCasillaJugadorActual().getTitulo()));
+        System.out.println("Estado actual del jugador " + juego.getJugadorActual());
+        juego.siguienteJugador();
+        System.out.println("\nSiguiente jugador: " + juego.getJugadorActual().getNombre());
+        juego.mover(1);
+        System.out.println("\nJugador se mueve a casilla " + juego.obtenerCasillaJugadorActual());
+        System.out.println("Saldo del jugador " + juego.getJugadorActual().getSaldo());
+        juego.siguienteJugador();
+        System.out.println("\nSiguiente jugador: " + juego.getJugadorActual().getNombre());
+        juego.mover(3);
+        System.out.println("\nJugador se mueve a casilla " + juego.obtenerCasillaJugadorActual());
+        System.out.println("\nJugador obtiene carta sorpresa: " + juego.getCartaActual());
+        juego.aplicarSorpresa();
+        System.out.println("Estado actual del jugador " + juego.getJugadorActual());
+        */
     }
 }

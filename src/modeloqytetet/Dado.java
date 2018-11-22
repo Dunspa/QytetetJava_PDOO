@@ -4,6 +4,7 @@
  * Autor: Jose Luis Gallego Peña
  */
 package modeloqytetet;
+import java.util.Random;
 
 public class Dado {
 
@@ -26,9 +27,10 @@ public class Dado {
         return valor;
     }
     
-    /*int tirar(){
-    
-    }*/
+    int tirar(){
+        Random rand = new Random();
+        return rand.nextInt((6 - 1) + 1) + 1;   // Genera aleatorio entre 1 y 6
+    }
     
     @Override
     public String toString(){
