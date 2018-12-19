@@ -63,7 +63,7 @@ public class PruebaQytetet {
         return jugadores;
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args){
         ArrayList<String> jugadores = getNombreJugadores();
         juego.inicializarJuego(jugadores);
         
