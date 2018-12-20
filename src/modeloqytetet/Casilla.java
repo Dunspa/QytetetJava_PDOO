@@ -45,7 +45,7 @@ public abstract class Casilla {
     
     @Override
     public String toString(){
-        return "\nCasilla{" + "numeroCasilla=" + Integer.toString(numeroCasilla) +
-                ", coste=" + Integer.toString(coste);
+        return "\n-Casilla:" + "\nNúmero de casilla:" + Integer.toString(numeroCasilla) +
+                "\nCoste:" + Integer.toString(coste) + "\n";
     }   
 }

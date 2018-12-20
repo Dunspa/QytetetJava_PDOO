@@ -67,6 +67,7 @@ public class TituloPropiedad {
     }
     
     void edificarHotel(){
+        numCasas = numCasas - 4;
         numHoteles = numHoteles + 1;
     }
     
@@ -146,14 +147,14 @@ public class TituloPropiedad {
     
     @Override
     public String toString(){
-        return "\nTituloPropiedad{" + "nombre=" + nombre + 
-                ", hipotecada=" + Boolean.toString(hipotecada) + 
-                ", precioCompra=" + Integer.toString(precioCompra) + 
-                ", alquilerBase=" + Integer.toString(alquilerBase) +
-                ", factorRevalorizacion=" + Float.toString(factorRevalorizacion) +
-                ", hipotecaBase=" + Integer.toString(hipotecaBase) +
-                ", precioEdificar=" + Integer.toString(precioEdificar) +
-                ", numHoteles=" + Integer.toString(numHoteles) +
-                ", numCasas=" + Integer.toString(numCasas) + "}";
+        return "\n-TituloPropiedad:" + "\nNombre: " + nombre + 
+                "\nHipotecada: " + Boolean.toString(hipotecada) + 
+                "\nPrecio de compra: " + Integer.toString(precioCompra) + 
+                "\nAlquiler base: " + Integer.toString(alquilerBase) +
+                "\nFactor revalorización: " + Float.toString(factorRevalorizacion) +
+                "\nHipoteca base: " + Integer.toString(hipotecaBase) +
+                "\nPrecio edificar: " + Integer.toString(precioEdificar) +
+                "\nNúmero de hoteles: " + Integer.toString(numHoteles) +
+                "\nNúmero de casas: " + Integer.toString(numCasas) + "\n";
     }
 }

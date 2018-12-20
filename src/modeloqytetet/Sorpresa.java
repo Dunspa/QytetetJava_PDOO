@@ -42,7 +42,7 @@ public class Sorpresa {
     // Devuelve un string con el estado del objeto correspondiente
     @Override
     public String toString() {      
-        return "\nSorpresa{" + "texto=" + texto + ", valor=" +
-                Integer.toString(valor) + ", tipo=" + tipo + "}";
+        return "\n-Sorpresa:" + "\nTexto: " + texto + "\nValor: " +
+                Integer.toString(valor) + "\nTipo: " + tipo + "\n";
     }   
 }

@@ -107,9 +107,11 @@ public class Tablero {
     
     @Override
     public String toString(){
-        String tablero = "\nTablero:";
+        String tablero = "\n-Tablero:";
         for (Casilla c : casillas)
-            tablero = tablero + c.toString() + "\n";
+            tablero = "\n" + tablero + c.toString();
+        
+        tablero += "\n";
             
         return tablero;    
     }

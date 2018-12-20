@@ -20,7 +20,7 @@ public class Qytetet {
     private Tablero tablero;
     private Sorpresa cartaActual = null;
     private Jugador jugadorActual = null;
-    private Dado dado;
+    private Dado dado = Dado.getInstance();
     private EstadoJuego estadoJuego;
     
     //------------------------------------------------------------------------
@@ -57,7 +57,7 @@ public class Qytetet {
         setEstadoJuego(EstadoJuego.JA_PUEDEGESTIONAR);
         
         Casilla casillaActual = jugadorActual.getCasillaActual();
-        if (((OtraCasilla)casillaActual).getTipo() == TipoCasilla.IMPUESTO){
+        if (casillaActual.getTipo() == TipoCasilla.IMPUESTO){
             jugadorActual.pagarImpuesto();
             
             if (jugadorActual.getSaldo() <= 0){
@@ -65,7 +65,7 @@ public class Qytetet {
             }
         }
         else{
-            if (((OtraCasilla)casillaActual).getTipo() == TipoCasilla.JUEZ){
+            if (casillaActual.getTipo() == TipoCasilla.JUEZ){
                 encarcelarJugador();
             }
             else if (((OtraCasilla)casillaActual).getTipo() == TipoCasilla.SORPRESA){
@@ -281,7 +281,7 @@ public class Qytetet {
         mazo.add(new Sorpresa ("Parece ser que le has caído bien a alguien y ha"
         + " pagado tu fianza. Sales de la cárcel.", 0, TipoSorpresa.SALIRCARCEL));    
         
-        // Cartas sorpresa que convierte al jugador en especulador
+        // Cartas sorpresa que convierten al jugador en especulador
         mazo.add(new Sorpresa ("Ahora eres un especulador (y un caradura)", 
         3000, TipoSorpresa.CONVERTIRME));
         mazo.add(new Sorpresa ("Ahora eres un especulador (y un caradura)", 
@@ -345,7 +345,7 @@ public class Qytetet {
             jugadorActual.modificarSaldo(SALDO_SALIDA);
         }
         
-        if (((Calle)casillaFinal).soyEdificable()){
+        if (casillaFinal.soyEdificable()){
             actuarSiEnCasillaEdificable();
         }
         else{
@@ -365,7 +365,7 @@ public class Qytetet {
         ArrayList<Integer> propiedadesJugador = new ArrayList();
         
         for (Casilla c : tablero.getCasillas()){
-            if (((OtraCasilla)c).getTipo() == TipoCasilla.CALLE){
+            if (c.getTipo() == TipoCasilla.CALLE){
                 if (jugadorActual.getPropiedades().contains(((Calle)c).getTitulo())){
                     propiedadesJugador.add(c.getNumeroCasilla());
                 }
@@ -379,7 +379,7 @@ public class Qytetet {
         ArrayList<Integer> propiedadesSegunHipoteca = new ArrayList();
         
         for (Casilla c : tablero.getCasillas()){
-            if (((OtraCasilla)c).getTipo() == TipoCasilla.CALLE){
+            if (c.getTipo() == TipoCasilla.CALLE){
                 if (jugadorActual.obtenerPropiedades(estadoHipoteca).contains(((Calle)c).getTitulo())){
                     propiedadesSegunHipoteca.add(c.getNumeroCasilla());
                 }
@@ -444,7 +444,7 @@ public class Qytetet {
     
     @Override
     public String toString(){
-        String s = "\nJuego Qytetet:" + tablero.toString();
+        String s = "\n-Juego Qytetet:" + tablero.toString();
         for (Jugador j : jugadores){
             s = s + j.toString();
         }
@@ -452,11 +452,11 @@ public class Qytetet {
             s = s + sorp.toString();
         }   
         if (jugadorActual != null && cartaActual != null){
-            s = s + (", jugadorActual=" + jugadorActual.toString());
-            s = s + (", cartaActual=" + cartaActual.toString());
+            s = s + ("\nJugador actual: " + jugadorActual.toString());
+            s = s + ("\nCarta actual: " + cartaActual.toString());
         }
         if (dado != null)
-            s = s + (", dado=" + dado.toString());
+            s = s + ("\nDado: " + dado.toString());
         
         s = s + "\n";
         

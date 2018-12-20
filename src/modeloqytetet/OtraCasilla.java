@@ -44,6 +44,6 @@ public class OtraCasilla extends Casilla{
     
     @Override
     public String toString(){
-        return super.toString() + ", tipo=" + tipo;
+        return super.toString() + "Tipo: " + tipo;
     }
 }

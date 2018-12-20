@@ -29,11 +29,12 @@ public class Dado {
     
     int tirar(){
         Random rand = new Random();
-        return rand.nextInt((6 - 1) + 1) + 1;   // Genera aleatorio entre 1 y 6
+        valor = (rand.nextInt(6)) + 1;   // Genera aleatorio entre 1 y 6
+        return valor;
     }
     
     @Override
     public String toString(){
-        return "\nDado{" + "valor=" + Integer.toString(valor) + "}";
+        return "\n-Dado:" + "\nValor: " + Integer.toString(valor) + "\n";
     }
 }

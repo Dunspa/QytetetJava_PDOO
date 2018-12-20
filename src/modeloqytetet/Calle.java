@@ -56,6 +56,6 @@ public class Calle extends Casilla{
     
     @Override
     public String toString(){
-        return super.toString() + ", tipo=" + TipoCasilla.CALLE + ", titulo=" + titulo + "}";
+        return super.toString() + "\nTipo: " + TipoCasilla.CALLE + "\nTitulo: " + titulo;
     }
 }

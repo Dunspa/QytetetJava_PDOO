@@ -264,18 +264,19 @@ public class Jugador implements Comparable {
     
     @Override
     public String toString(){
-        String s = "\nJugador{" + "nombre=" + nombre 
-                    + ", encarcelado=" + Boolean.toString(encarcelado)
-                    + ", saldo=" + Integer.toString(saldo)
-                    + ", capital=" + Integer.toString(obtenerCapital());
+        String s = "\n-Jugador: " + "\nNombre: " + nombre 
+                    + "\nEncarcelado: " + Boolean.toString(encarcelado)
+                    + "\nSaldo: " + Integer.toString(saldo)
+                    + "\nCapital: " + Integer.toString(obtenerCapital());
         if (cartaLibertad != null)
-            s = s + ", cartaLibertad=" + cartaLibertad.toString();
+            s = s + "\nCarta libertad: " + cartaLibertad.toString();
         
-        s = s + ", casillaActual=" + casillaActual.toString() + ", propiedades=";
+        s = s + "\nCasilla actual: " + casillaActual.toString() + "\nPropiedades: ";
         for (TituloPropiedad t : propiedades){
             s = s + t.toString();
         }
-        s  = s + "}";
+        
+        s += "\n";
         
         return s;
     }
